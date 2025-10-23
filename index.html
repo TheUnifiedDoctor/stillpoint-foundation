@@ -1,105 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Stillpoint Foundation</title>
-  <meta name="description" content="The Stillpoint Foundation — a sovereign humanitarian trust funded by STLPNT."/>
-
-  <style>
-    :root{
-      --bg:#0b0b0c;
-      --fg:#f3f3f3;
-      --muted:#c7c7c7;
-      --accent:#bfbfbf;
-      --card:#141416;
-      --line:#242428;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif}
-    a{color:#8adfff;text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    header{padding:40px 0 20px;border-bottom:1px solid var(--line);margin-bottom:24px}
-    .brand{display:flex;align-items:center;gap:16px}
-    .logo{
-      width:52px;height:52px;border-radius:50%;
-      background: radial-gradient(circle at 50% 50%, #fff 0 3px, transparent 3px), 
-                  conic-gradient(from 0turn, #fff 0turn 0.85turn, transparent 0.85turn 1turn);
-      mask: radial-gradient(circle at 50% 50%, black 0 100%);
-      border:2px solid #fff;
-    }
-    h1{font-size: clamp(1.6rem, 4vw, 2.2rem);margin:0}
-    .tag{color:var(--muted)}
-    .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
-    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-    h2{font-size:1.25rem;margin:0 0 10px}
-    h3{font-size:1.05rem;margin:16px 0 6px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
-    .price{display:flex;align-items:baseline;gap:10px}
-    .price .big{font-size:2rem;font-weight:700}
-    .muted{color:var(--muted)}
-    .pill{display:inline-block;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px}
-    .footer{border-top:1px solid var(--line);margin-top:24px;padding-top:24px;color:var(--muted);font-size:14px}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;}
-    .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:900px){ .cols{grid-template-columns:1fr} }
-    .list{margin:0;padding-left:18px}
-    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
-    @media (max-width:900px){ .kpi{grid-template-columns:repeat(2,1fr)} }
-    .kpi .n{font-size:1.4rem;font-weight:800}
-    .small{font-size:13px}
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Stillpoint Foundation — STLPNT</title>
+<style>
+  :root{
+    --bg:#0b0b0e; --fg:#f5f7fb; --muted:#a9b0bd; --card:#12141a; --line:#222632;
+    --accent:#3ea6ff; --pill:#1b2130; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;}
+  .wrap{max-width:1200px; margin:0 auto; padding:24px;}
+  header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px;}
+  header .brand{display:flex; align-items:center; gap:12px;}
+  header img{height:40px; width:auto; display:block;}
+  h1{font-size:1.4rem; margin:0;}
+  .muted{color:var(--muted);}
+  .small{font-size:0.9rem;}
+  .mono{font-family:var(--mono);}
+  .pill{display:inline-block; padding:4px 8px; border-radius:999px; background:var(--pill);}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.02) inset, 0 8px 24px rgba(0,0,0,0.35);
+  }
+  .hero{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:16px;
+    margin:16px 0 24px 0;
+  }
+  .price{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+  .big{font-weight:700; font-size:2rem;}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul,ol{margin:0 0 0 1.25rem; padding:0;}
+  li{margin:6px 0;}
+  footer{margin-top:28px; border-top:1px solid var(--line); padding-top:16px; color:var(--muted)}
+  /* Make all hero cards visually consistent in width/height behavior */
+  .hero > .card{display:flex; flex-direction:column}
+</style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <!-- your logo -->
+        <img src="logo.png" alt="Stillpoint Foundation"/>
         <div>
-          <h1>The Stillpoint Foundation</h1>
-          <div class="tag">“At the still point, we begin.” — A sovereign humanitarian trust funded by STLPNT.</div>
+          <h1>Stillpoint Foundation</h1>
+          <div class="muted small">Humanitarian crypto fund powered by STLPNT</div>
         </div>
       </div>
+      <div class="pill mono">v1.0</div>
     </header>
 
+    <!-- HERO GRID -->
     <section class="hero">
-      <div class="card">
-        <h2>Mission</h2>
-        <p>The Stillpoint Foundation restores equilibrium where the world has lost its rhythm—through rapid humanitarian relief, ethical education, and long‑arc reconstruction. Our endowment is held in <strong>STLPNT</strong>, a sovereign digital reserve designed for measurable human good. We do not solicit public donations; instead, we convert a fixed share of our endowment each year into direct, auditable outcomes delivered with trusted local partners.</p>
-        <div class="grid" style="margin-top:8px">
-          <div class="card">
-            <h3>Restoration Grants</h3>
-            <p class="muted">We fund response and recovery that is fast, local, and lasting. Grants target the period between acute crisis and long‑term development—when communities are most vulnerable to secondary harm.</p>
-            <ul class="muted list">
-              <li><strong>Rapid Window:</strong> Disburse within 72 hours for logistics, medical supplies, clean water, and emergency shelter.</li>
-              <li><strong>Local First:</strong> Purchase from regional suppliers to accelerate delivery and stimulate the recovery economy.</li>
-              <li><strong>Build Back Better:</strong> Reconstruction uses climate‑resilient designs and community stewardship models.</li>
-              <li><strong>Transparent by Default:</strong> All tranches and milestones mirrored to a public, read‑only ledger.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Continuum Scholarships</h3>
-            <p class="muted">Education is how recovery continues after the news cycle ends. We invest in people who will hold communities together long after the grant closes.</p>
-            <ul class="muted list">
-              <li><strong>Fellowships:</strong> Graduate and professional funding for ethics of technology, public health, climate adaptation, and cultural memory.</li>
-              <li><strong>Chairs & Residencies:</strong> Co‑funded posts at universities and teaching hospitals to anchor expertise locally.</li>
-              <li><strong>Open Learning:</strong> Multilingual curricula and toolkits released under open licences for schools and NGOs.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Equilibrium Health</h3>
-            <p class="muted">Health systems are the spine of recovery. We support mobile and fixed care that is culturally safe and designed to be owned locally.</p>
-            <ul class="muted list">
-              <li><strong>Mobile Clinics:</strong> Primary care, maternal health, and trauma‑informed mental‑health services.</li>
-              <li><strong>Cold‑Chain & Diagnostics:</strong> Solar refrigeration, point‑of‑care testing, and telemedicine hubs.</li>
-              <li><strong>Capacity:</strong> Training pathways for community health workers, with certification and supervision.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+      <!-- Price card: same width behavior as other cards -->
       <div class="card" id="priceCard" aria-live="polite">
         <h2>STLPNT — Live Price (USD)</h2>
         <div class="price">
@@ -112,186 +72,101 @@
           <div class="mono muted small" id="mcap">Market Cap: —</div>
         </div>
       </div>
-    </section>
 
-    <section class="cols" style="margin-top:16px">
-      <div class="card">
-        <h2>What We Fund</h2>
-        <p class="muted">We fund programmes that reduce avoidable suffering and increase community agency. Every grant links to a concrete outcome that can be photographed, audited, or independently verified.</p>
-        <ul class="muted list">
-          <li><strong>Emergency Relief:</strong> Food rations, cash‑for‑work, water purification, WASH kits, emergency shelter materials, and protection services.</li>
-          <li><strong>Reconstruction:</strong> Climate‑resilient housing, flood‑safe water systems, off‑grid energy, and repair of public assets such as classrooms and clinics.</li>
-          <li><strong>Health Systems:</strong> Mobile units, essential medicines lists, diagnostics, referral networks, and mental‑health programmes for survivors and staff.</li>
-          <li><strong>Education:</strong> Teacher training, digital and print curricula, scholarships for educators and health workers, and school‑in‑a‑box deployments.</li>
-          <li><strong>Cultural & Environmental Preservation:</strong> Digitisation of archives, community museums, mangrove and watershed restoration, and local ranger training.</li>
+      <!-- Mission card: same width behavior as other cards -->
+      <section class="card" id="mission">
+        <h2>Mission</h2>
+        <p>
+          We fund global innovation, education, and relief projects — enabling transparent, decentralized
+          distribution of resources to initiatives that create lasting, measurable impact worldwide.
+        </p>
+      </section>
+
+      <!-- Example existing card (e.g., Governance) to demonstrate consistent sizing -->
+      <section class="card" id="governance">
+        <h2>Governance</h2>
+        <ul>
+          <li>Transparent reporting with on-chain references.</li>
+          <li>Independent oversight and public accountability.</li>
+          <li>Grants and disbursements reviewed on published criteria.</li>
         </ul>
-      </div>
-      <div class="card">
+      </section>
+
+      <!-- FUNDING MODEL -->
+      <section class="card" id="funding">
         <h2>Funding Model</h2>
-        <p class="muted">Our endowment is denominated in STLPNT. Each year, a fixed share is converted to operational currency. This maintains inter‑generational capacity while ensuring decisive action now.</p>
-        <ul class="muted list">
-          <li><strong>Endowment:</strong> 27,984,549.08348 STLPNT with transparent supply and custody.</li>
-          <li><strong>Annual Release:</strong> 0.5% of endowment disbursed into programmes, balanced across regions and sectors.</li>
-          <li><strong>Overheads:</strong> ≤ 1% of annual release, emphasising automation, open tooling, and partner‑led delivery.</li>
-          <li><strong>Re‑absorption:</strong> Unspent allocations return automatically to the Stillness Vault at the solstice.</li>
-          <li><strong>Price Reference:</strong> Grants contracted in local currency; public dashboard shows STLPNT valuation translated via live FX.</li>
+        <ul>
+          <li>STLPNT token as the primary fund mechanism.</li>
+          <li>Donations and matching programs from partners.</li>
+          <li>Ring-fenced operating budget; endowment preserved.</li>
+          <!-- NEW: Live endowment computation -->
+          <li id="endowmentUSDItem">
+            <strong>Foundation Endowment (USD): </strong>
+            <span id="endowmentUSD">—</span>
+            <div class="muted small mono">Computed as: (Live price USD) × 27,984,549.08348</div>
+          </li>
         </ul>
-      </div>
+      </section>
+
+      <!-- Add more cards as needed... -->
     </section>
 
-    <section class="card" style="margin-top:16px">
-      <h2>Governance & Accountability</h2>
-      <p class="muted">Trust in humanitarian work is earned through clarity. We publish how decisions are made, who benefits, and what changes because of the work—not just what we spent.</p>
-      <ul class="muted list">
-        <li><strong>Board of Stewards:</strong> Seven trustees with expertise across humanitarian operations, public health, finance, ethics, and law. Conflicts of interest are disclosed and managed publicly.</li>
-        <li><strong>Advisory Council:</strong> A rotating panel of field practitioners, cryptographers, clinicians, educators, and community leaders who review pipeline proposals.</li>
-        <li><strong>On‑Chain Transparency:</strong> Every grant milestone appears on a public, read‑only ledger with narrative context and a unique verification hash.</li>
-        <li><strong>Independent Review:</strong> An annual <em>Stillpoint Report</em> summarises impact metrics, lessons learned, and course corrections—archived in perpetuity.</li>
-        <li><strong>Whistleblowing & Safeguarding:</strong> Secure channels for concerns, survivor‑centred responses, and legal follow‑through where required.</li>
-      </ul>
-      <div class="kpi">
-        <div><div class="n" id="kpiA">0</div><div class="muted small">Lives Stabilised</div></div>
-        <div><div class="n" id="kpiB">0</div><div class="muted small">Clinics & Classrooms Rebuilt</div></div>
-        <div><div class="n" id="kpiC">0</div><div class="muted small">Scholarships Awarded</div></div>
-        <div><div class="n" id="kpiD">0%</div><div class="muted small">Overhead</div></div>
-      </div>
-    </section>
-
-    <section class="cols" style="margin-top:16px">
-      <div class="card">
-        <h2>Grantmaking</h2>
-        <p class="muted">We design with communities, not for them. Our process ensures speed when it matters and patience when the right answer takes time.</p>
-        <ol class="muted list">
-          <li><strong>Partner Qualification:</strong> Due diligence on governance, financial controls, safeguarding, and local legitimacy.</li>
-          <li><strong>Needs Assessment:</strong> Community consultation that centres women, youth, and people with disabilities.</li>
-          <li><strong>Design & Budget:</strong> Milestone‑based plans with measurable outcomes and exit strategies.</li>
-          <li><strong>On‑Chain Disbursement:</strong> Tranches released against verified milestones; variance management where conditions change.</li>
-          <li><strong>Monitoring & Learning:</strong> Mixed‑methods evaluation, independent verification, and publication of findings.</li>
-        </ol>
-      </div>
-      <div class="card">
-        <h2>Initial Regions</h2>
-        <p class="muted">Our first portfolio balances disaster‑prone geographies with opportunities for durable impact, in partnership with organisations already trusted on the ground.</p>
-        <ul class="muted list">
-          <li><strong>Aegean Coast:</strong> Climate refugee resettlement with local municipalities—secure shelter, language access, and job‑matching services.</li>
-          <li><strong>Sudan–Chad:</strong> Mobile health corridors bridging camps and host communities; training community health workers and establishing referral networks.</li>
-          <li><strong>Indonesia:</strong> Earthquake‑resilient reconstruction using local materials and artisans; community‑owned micro‑insurance.</li>
-          <li><strong>Northern Pakistan:</strong> Scholarships for women in STEM and teacher‑training in remote valleys; safe transport and housing.</li>
-          <li><strong>Vanuatu & Kiribati:</strong> Renewable microgrids, freshwater security, and cultural digitisation before climate loss accelerates.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="cols" style="margin-top:16px">
-      <div class="card">
-        <h2>Ethics & Safeguards</h2>
-        <p class="muted">Humanitarian action must never become a source of harm. Our safeguards are practical, enforceable, and transparent.</p>
-        <ul class="muted list">
-          <li><strong>Do‑No‑Harm Design:</strong> Context analysis and risk registers accompany every grant.</li>
-          <li><strong>Safeguarding:</strong> Survivor‑centred policies; mandatory reporting; background checks for personnel.</li>
-          <li><strong>Environment:</strong> Minimum standards on emissions, materials, and biodiversity impacts.</li>
-          <li><strong>Data Responsibility:</strong> Privacy‑by‑design; no surveillance; encryption for sensitive information.</li>
-          <li><strong>Local Ownership:</strong> Handover plans and community governance baked into project charters.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Eligibility & How to Apply</h2>
-        <p class="muted">We work through trusted organisations with the legitimacy to lead. If that describes you, we’re ready to listen.</p>
-        <ul class="muted list">
-          <li>Registered NGOs, public institutions, or community trusts with clean audits or verifiable financials.</li>
-          <li>Two‑page concept note; if shortlisted, an invited full proposal with budget and risk plan.</li>
-          <li>Proof of community leadership and a credible exit to local stewardship.</li>
-          <li>Clear, measurable outcomes and a commitment to public reporting.</li>
-          <li>Send proposals to <a href="mailto:grants@stillpoint.foundation">grants@stillpoint.foundation</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px">
-      <h2>Partners & Networks</h2>
-      <p class="muted">We collaborate with universities, medical NGOs, cultural archives, renewable‑energy providers, and civic groups. The common thread: a bias for practical outcomes and verifiable impact.</p>
-      <p class="muted small">Prospective partners: <a href="mailto:partners@stillpoint.foundation">partners@stillpoint.foundation</a></p>
-    </section>
-
-    <section class="card" style="margin-top:16px">
-      <h2>FAQ</h2>
-      <p class="muted"><strong>How is STLPNT valued?</strong> The Foundation maintains a canonical NZD valuation per token. This page converts that figure to USD using public NZD→USD foreign‑exchange rates in real time, so partners can plan in their operating currency.</p>
-      <p class="muted"><strong>Do you accept donations?</strong> No. The endowment is sufficient for our mandate. We welcome knowledge, local leadership, and courage more than cash.</p>
-      <p class="muted"><strong>How do I track a grant?</strong> Each grant has a public reference on our read‑only ledger mirror with milestones, outputs, and verification notes.</p>
-      <p class="muted"><strong>What is your overhead?</strong> Administrative overhead is capped at ≤1% of annual programme release and disclosed in the Stillpoint Report.</p>
-    </section>
-
-    <div class="footer">
-      <div>&copy; <span id="yr"></span> The Stillpoint Foundation</div>
-    </div>
+    <footer class="small">
+      © Stillpoint Foundation — STLPNT. All rights reserved.
+    </footer>
   </div>
 
+  <!-- Your existing price updater script can remain as-is.
+       Below helper recalculates the Endowment whenever #price changes. -->
   <script>
-    // ====== LIVE PRICE without backend (public FX only) ======
-    const NZD_PER_STLPNT = 1366.52; // canonical reference
-    const TOTAL_SUPPLY = 27984549.08348;
-    const FALLBACK_NZDUSD = 0.60;
+  (function(){
+    const MULTIPLIER = 27984549.08348;
+    const fmtUSD = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 });
 
-    const FX_ENDPOINTS = [
-      "https://open.er-api.com/v6/latest/NZD",
-      "https://api.exchangerate.host/latest?base=NZD&symbols=USD"
-    ];
-
-    function fmtUSD(n){
-      return n.toLocaleString(undefined, {style:'currency', currency:'USD', maximumFractionDigits: 2});
+    function parsePriceText(txt){
+      if (!txt) return NaN;
+      return parseFloat(txt.replace(/[^0-9.\-]/g, ''));
     }
 
-    async function fetchNZDUSD(){
-      for (const url of FX_ENDPOINTS){
-        try{
-          const res = await fetch(url, {cache:'no-store'});
-          if (!res.ok) continue;
-          const data = await res.json();
-          let rate = null, updated = null;
-          if (data.result === "success" && data.rates && typeof data.rates.USD === "number"){
-            rate = data.rates.USD;
-            updated = data.time_last_update_utc || null;
-          } else if (data.rates && typeof data.rates.USD === "number"){
-            rate = data.rates.USD;
-            updated = data.date || null;
-          }
-          if (rate && rate > 0) return {rate, updated, live:true};
-        }catch(e){ /* continue */ }
-      }
-      return {rate: FALLBACK_NZDUSD, updated: null, live:false};
-    }
-
-    async function renderPrice(){
+    function updateEndowment(){
       const priceEl = document.getElementById('price');
-      const statusEl = document.getElementById('status');
-      const updatedEl = document.getElementById('updatedAt');
-      const mcapEl = document.getElementById('mcap');
-
-      const {rate, updated, live} = await fetchNZDUSD();
-      const usdPerToken = NZD_PER_STLPNT * rate;
-      priceEl.textContent = fmtUSD(usdPerToken);
-      mcapEl.textContent = "Market Cap: " + fmtUSD(usdPerToken * TOTAL_SUPPLY);
-
-      if (live){
-        statusEl.textContent = "live";
-        statusEl.style.color = "#7dffa7";
-        updatedEl.textContent = "Updated: " + (updated ? updated : new Date().toLocaleString());
-      }else{
-        statusEl.textContent = "reference";
-        updatedEl.textContent = "Updated: reference FX";
-      }
+      const outEl = document.getElementById('endowmentUSD');
+      if (!priceEl || !outEl) return;
+      const p = parsePriceText(priceEl.textContent);
+      if (!isFinite(p)) return;
+      outEl.textContent = fmtUSD.format(p * MULTIPLIER);
     }
 
-    function renderKPIs(){
-      document.getElementById('kpiA').textContent = (0).toLocaleString();
-      document.getElementById('kpiB').textContent = (0).toLocaleString();
-      document.getElementById('kpiC').textContent = (0).toLocaleString();
-      document.getElementById('kpiD').textContent = "≤1%";
+    // Update on load:
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateEndowment);
+    } else {
+      updateEndowment();
     }
 
-    document.getElementById('yr').textContent = new Date().getFullYear();
-    renderKPIs();
-    renderPrice();
+    // Update whenever #price changes:
+    const priceEl = document.getElementById('price');
+    if (priceEl && 'MutationObserver' in window){
+      const obs = new MutationObserver(updateEndowment);
+      obs.observe(priceEl, { childList: true, characterData: true, subtree: true });
+    }
+
+    // Fallback periodic update:
+    setInterval(updateEndowment, 5000);
+  })();
   </script>
+
+  <!-- OPTIONAL: If you need a simple demo price (remove if you already have live price logic) -->
+  <!--
+  <script>
+    // Demo only: fake a changing price (remove if you already fetch real price)
+    setTimeout(()=>{
+      document.getElementById('price').textContent = '$1.23';
+      document.getElementById('status').textContent = 'ok';
+      document.getElementById('updatedAt').textContent = 'Updated: now';
+      document.getElementById('mcap').textContent = 'Market Cap: $—';
+    }, 800);
+  </script>
+  -->
 </body>
 </html>
